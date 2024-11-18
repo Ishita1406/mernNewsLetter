@@ -5,7 +5,7 @@ import cors from 'cors';
 import FlowRoutes from './routes/FlowRoutes.js';
 import path from 'path';
 
-dotenv.config();    
+dotenv.config();
 mongoose.connect(process.env.MONGO_URL).then(() => {
     console.log('MongoDB connected!');
 }).catch((error) => {
