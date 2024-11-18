@@ -50,7 +50,7 @@ function FlowSimulation() {
                             return;
                         }
                         else {
-                            await handleUpdatedFlow(flowId, 'COMPLETED', secondRenewalStatus, ['No renewal received after second reminder. Flow completed.']);
+                            await handleUpdatedFlow(flowId, 'COMPLETED', secondRenewalStatus, ['No renewal received after second reminder. No further action']);
                         }
                     }, 2000);
                 }
@@ -61,7 +61,7 @@ function FlowSimulation() {
     const sendRenewalReminder = async (flowId, reminderType) => {
         const logMessage = `${reminderType}`;
         setLogs((prevLogs) => [...prevLogs, logMessage]);
-        await axios.post(`backend/flow/update/${flowId}`, { flowId, state: 'WAITING_1', renewalStatus: 'PENDING', log: logMessage });
+        await axios.post(`backend/flow/update/${flowId}`, { flowId, state: 'WAITING', renewalStatus: 'PENDING', log: logMessage });
     }
 
     const checkRenewalStatus = async (flowId) => {
