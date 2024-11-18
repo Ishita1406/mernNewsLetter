@@ -2,7 +2,7 @@
     "rewrites": [
       {
         "source": "/(.*)",
-        "destination": "https://mernnewsletter.onrender.com/backend/$1"
+        "destination": "/"
       }
     ]
 }
